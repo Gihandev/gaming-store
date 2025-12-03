@@ -1,0 +1,82 @@
+version: 2
+updates:
+  # ==============
+  # FRONTEND (CRA - repo root)
+  # ==============
+  - package-ecosystem: "npm"
+    directory: "/games"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "08:00"
+      timezone: "Asia/Colombo"
+    open-pull-requests-limit: 10
+    reviewers:
+      - "Gihandev"
+    assignees:
+      - "Gihandev"
+    groups:
+      # CRA core
+      cra-core:
+        patterns:
+          - "react"
+          - "react-dom"
+          - "react-scripts"
+      # UI & components
+      frontend-ui:
+        patterns:
+          - "flowbite"
+          - "flowbite-react"
+          - "react-responsive-carousel"
+          - "react-hot-toast"
+      # Routing & data
+      frontend-utils:
+        patterns:
+          - "react-router-dom"
+          - "axios"
+      # Testing (keep updated for security)
+      testing:
+        patterns:
+          - "@testing-library/*"
+          - "web-vitals"
+
+  # ==============
+  # BACKEND (server)
+  # ==============
+  - package-ecosystem: "npm"
+    directory: "/server"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "08:00"
+      timezone: "Asia/Colombo"
+    open-pull-requests-limit: 8
+    reviewers:
+      - "Gihandev"
+    assignees:
+      - "Gihandev"
+    groups:
+      backend-core:
+        patterns:
+          - "express"
+          - "cors"
+          - "body-parser"
+      database:
+        patterns:
+          - "mongoose"
+      file-upload:
+        patterns:
+          - "multer"
+      dev-tool:
+        patterns:
+          - "nodemon"
+
+  # ==============
+  # GITHUB ACTIONS
+  # ==============
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "08:00"
